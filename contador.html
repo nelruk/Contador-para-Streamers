@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contador</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="contador.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Nombre del streamer</h1>
+            <h2>Empezaremos en breve</h2>
+
+            <div class="count">
+                <div class="countd">
+                    <span id="dias">00</span>
+                    DÍAS
+                </div>
+
+                <div class="countd">
+                    <span id="horas">00</span>
+                    HORAS
+                </div>
+
+                <div class="countd">
+                    <span id="minutos">00</span>
+                    MINUTOS
+                </div>
+
+                <div class="countd">
+                    <span id="segundos">00</span>
+                    SEGUNDOS
+                </div>
+            </div>
+
+        </div>
+
+        <script type="text/javascript">
+            var count = prompt(input(new Date("").getTime()));
+            var x = setInterval(function() {
+                var now = new Date().getTime();
+                var d = count - now;
+
+                var dias = Math.floor(d/(1000*60*60*24));
+                var horas = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+                var minutos = Math.floor((d%(1000*60*60))/(1000*60));
+                var segundos = Math.floor((d%(1000*60))/1000);
+
+                document.getElementById("dias").innerHTML = dias;
+                document.getElementById("horas").innerHTML = horas;
+                document.getElementById("minutos").innerHTML = minutos;
+                document.getElementById("segundos").innerHTML = segundos;
+
+                if(d <= 0) {
+                    clearInterval(x);
+                }
+            },1000);
+
+        </script>
+    </body>
+</html>
